@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'dart:io';
 
@@ -21,7 +20,6 @@ class _HomePageState extends State<HomePage> {
 
   // função para obter gifs através da api
   Future<Map?> _getGifs() async {
-
     http.Response response;
     if (_search == null || _search!.isEmpty) {
       response = await http.get(
@@ -54,12 +52,8 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
-  
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
