@@ -1,14 +1,13 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:buscador_gifs/ui/gif_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:share/share.dart';
-// ignore: import_of_legacy_library_into_null_safe
+
 import 'package:transparent_image/transparent_image.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatefulWidget { //StatefulWidget é para ter mudança estado
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -54,8 +53,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return Scaffold( //Scaffold é para background e barra de navegação
+      appBar: AppBar(//AppBar é para cabeçalho
         backgroundColor: Colors.black,
         title: Image.network(
             "https://developers.giphy.com/branch/master/static/header-logo-8974b8ae658f704a5b48a2d039b8ad93.gif"),
@@ -66,7 +65,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           SizedBox(height: 11),
           Padding(
-            padding: EdgeInsets.all(12),
+            padding: EdgeInsets.all(12), //padding para o input de pesquisa
             child: TextField(
               decoration: InputDecoration(
                 labelText: "Pesquise aqui",
@@ -84,7 +83,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Expanded(
-            child: FutureBuilder(
+            child: FutureBuilder( 
               future: _getGifs(),
               builder: (context, snapshot) {
                 switch (snapshot.connectionState) {
@@ -114,6 +113,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _createGifTable(BuildContext context, AsyncSnapshot snapshot) {
+    //cria a tabela de gifs personalizada com os dados do snapshot
     return GridView.builder(
         padding: EdgeInsets.all(10.0),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

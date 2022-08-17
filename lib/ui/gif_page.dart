@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 
-class GifPage extends StatelessWidget {
+class GifPage extends StatelessWidget  { //stateless é para não ter mudança estado
   final Map _gifData;
 
   GifPage(this._gifData);
