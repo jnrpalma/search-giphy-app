@@ -7,7 +7,8 @@ import 'package:share/share.dart';
 
 import 'package:transparent_image/transparent_image.dart';
 
-class HomePage extends StatefulWidget { //StatefulWidget é para ter mudança estado
+class HomePage extends StatefulWidget {
+  //StatefulWidget é para ter mudança estado
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -53,8 +54,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( //Scaffold é para background e barra de navegação
-      appBar: AppBar(//AppBar é para cabeçalho
+    return Scaffold(
+      //Scaffold é para background e barra de navegação
+      appBar: AppBar(
+        //AppBar é para cabeçalho
         backgroundColor: Colors.black,
         title: Image.network(
             "https://developers.giphy.com/branch/master/static/header-logo-8974b8ae658f704a5b48a2d039b8ad93.gif"),
@@ -63,6 +66,9 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.black,
       body: Column(
         children: [
+          SizedBox(height:20),
+          Text("GIPHYS DA ALINE",
+          style: TextStyle(color: Color.fromARGB(255, 244, 54, 190), fontSize: 25)),
           SizedBox(height: 11),
           Padding(
             padding: EdgeInsets.all(12), //padding para o input de pesquisa
@@ -83,7 +89,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Expanded(
-            child: FutureBuilder( 
+            child: FutureBuilder(
               future: _getGifs(),
               builder: (context, snapshot) {
                 switch (snapshot.connectionState) {
